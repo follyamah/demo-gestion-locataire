@@ -1,0 +1,158 @@
+<!-- Sidebar -->
+     {%load static%}
+     {% if request.user.is_authenticated  %}
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+        <div class="sidebar-brand-icon ">
+            <i class="fas fa-home fa-3x"></i>
+
+        </div>
+
+        <div class="sidebar-brand-text mx-3">GL</div>
+
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      {% if user.user_type == 3%}
+      <div class="icones">
+
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'maison:index'%}">
+          <i class="mdi mdi-file-document-box menu-icon"></i>
+          <span>Accueil</span></a>
+      </li>
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Habitats
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class=" fas fa-home "></i>
+          <span>MAISON</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Gestion des maisons:</h6>
+            <a class="collapse-item" href="{% url 'maison:liste-maison'%}">Liste des maisons</a>
+            <a class="collapse-item" href="{% url 'maison:ajouter-maison'%}">Ajouter maison</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class=" fa fa-door-open"></i>
+          <span>CHAMBRE</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Gestion des chambres:</h6>
+            <a class="collapse-item" href="{%url 'chambre:liste-chambre'%}">Liste des chambres</a>
+            <a class="collapse-item" href="{%url 'chambre:ajouter-chambre'%}">Ajouter chambre</a>
+
+          </div>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Personnes
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="  fa fa-user"></i>
+          <span>Locataires</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Gestion des Locataires</h6>
+            <a class="collapse-item" href="{%url 'contrat:liste-contrat'%}">Liste des Locataires</a>
+            <a class="collapse-item" href="{%url 'contrat:ajouter-contrat'%}">Ajouter Locataire</a>
+            <a class="collapse-item" href="{%url 'contrat:locataire-info'%}">Ajouter Information</a>
+
+          </div>
+        </div>
+        </li>
+
+
+
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'payement:liste-payement'%}">
+          <i class=" fas fa-money-check " ></i>
+          <span>Payement Loyer</span></a>
+      </li
+          <hr class="sidebar-divider">
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'payement_e_e:liste-payement_e_e'%}">
+          <i class=" fas fa-money-check " ></i>
+          <span>Payement Eau/Ele</span></a>
+      </li>
+
+
+
+
+
+
+
+
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          Autres
+        </div>
+
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'authentication:signup' %}">
+          <i class=" fas fa-user-plus  " ></i>
+          <span>Enregistrement</span></a>
+      </li>
+
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'authentication:login' %}">
+          <i class=" fas fa-sign-out-alt " ></i>
+          <span>Deconnexion</span></a>
+      </li>
+
+
+        </div>
+        {%endif%}
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    {% endif %}
+    <!-- End of Sidebar -->

@@ -1,0 +1,100 @@
+
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<div class=" card-body">
+
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h4 class="card-title">Liste des contrats</h4>
+    <a href="{%url 'contrat:ajouter-contrat'%}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="mdi mdi-plus mdi-sm text-white-50"></i> Nouveau Contrat</a>
+  </div>
+
+
+
+                  <div class="table-responsive pt-3">
+
+
+
+
+
+                    <div class="card">
+
+
+                    <table class="table table-dark">
+                      <thead>
+
+                        <tr>
+                          <th>
+                            #
+                          </th>
+                          <th>
+                            Nom
+                          </th>
+                          <th>
+                            Prenoms
+                          </th>
+                          <th>
+                            Maison
+                          </th>
+                          <th>
+                            Chambre
+                          </th>
+                          <th>
+                            Date du contrat
+                          </th>
+                          <th>
+                            Date d'entree
+                          </th>
+                          <th>
+                            Date de sortie
+                          </th>
+                          <th>
+                            Action
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                            {% for contrat in contrat%}
+                        <tr>
+                          <td>
+                            1
+                          </td>
+                          <td>
+                            {{contrat.locataire.nom_locataire}}
+                          </td>
+                          <td>
+                            {{contrat.locataire.prenom_locataire}}
+                          </td>
+                          <td>
+                            {{contrat.maison}}
+                          </td>
+                          <td>
+                            {{contrat.chambre}}
+                          </td>
+                          <td>
+                            {{contrat.date_contrat}}
+                          </td>
+                          <td>
+                            {{contrat.date_entree}}
+                          </td>
+                          <td>
+                            {{contrat.date_sortie}}
+                          </td>
+                          <td>
+                            <a href="{% url 'contrat:modifier-contrat' pk=contrat.pk %}" class="settings contrat-i" title="Settings" data-toggle="tooltip"><i class=" mdi mdi-pencil   "></i></a>
+                            <a href="{% url 'contrat:supprimer-contrat' pk=contrat.pk %}" ><i class=" mdi mdi-delete contrat-i "></i></a>
+                          </td>
+                        </tr>
+
+                    {%endfor%}
+                      </tbody>
+                    </table>
+                      </div>
+                  </div>
+                </div>
+                {% endblock content%}

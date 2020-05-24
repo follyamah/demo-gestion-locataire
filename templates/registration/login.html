@@ -1,0 +1,96 @@
+<!-- templates/registration/login.html -->
+
+
+
+    <!DOCTYPE html>
+    {% load static %}
+    <html lang="en">
+    <head>
+    {% include "header.html" %}
+
+    </head>
+     <body id="page-top">
+        <div id="wrapper">
+
+        <div id="content-wrapper" class="d-flex flex-column">
+         <div id="content">
+        {% block content %}
+        {% load crispy_forms_tags %}
+        <div class="container-fluid">
+
+          <div class="row ">
+
+                 <div class="col-xl-3 col-md-6 mb-4 ">
+                 </div>
+                            <div class="col-xl-6 col-md-12 mb-12 ">
+
+                      <form role="form" method="post" action=""  class="card-registration shadow border-left-primary " >
+
+                        {% csrf_token %}
+
+                        <div class="card-header" >
+
+
+                          <h6 class="card-category">
+                              {% if msg %}
+                                <span class="text-danger">{{ msg }}</span>
+                              {% endif %}
+                                <br />
+                          </h6>
+                        </div>
+
+                        <div class="card-body">
+
+                              <div class="form-group">
+                                <div class="row">
+                                  <div class="col-xl-4 col-md-6 mb-4 ">
+                                      <label for="">Utilisateur:</label>
+                                 </div>
+
+                                 <div class="col-xl-8 col-md-6 mb-4 ">
+                                    {{ form.username|as_crispy_field }}
+                                </div>
+
+                                </div>
+
+
+                                </div>
+
+                                <div class="form-group">
+                                  <div class="row">
+                                    <div class="col-xl-4 col-md-6 mb-4 ">
+                                        <label for="">Mot de passe:</label>
+                                   </div>
+
+                                   <div class="col-xl-8 col-md-6 mb-4 ">
+                                      {{ form.username|as_crispy_field }}
+                                  </div>
+
+                                  </div>
+
+
+                                  </div>
+                        </div>
+                        <div class="card-footer">
+                          <div class="row">
+                             <div class="col-xl-12 col-md-12 mb-12 ">
+                               <button type="submit" name="login" class="btn btn-fill btn-primary">Valider</button>
+                             </div>
+                          </div>
+                        </div>
+                      </form>
+                      </div>
+                       <div class="col-xl-3 col-md-6 mb-4 ">
+                      </div>
+                      </div>
+                      </div>
+
+        {% endblock content %}
+
+    </div>
+    </div>
+      </div>
+
+        {% include "scripts.html" %}
+    </body>
+    </html>

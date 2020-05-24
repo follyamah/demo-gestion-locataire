@@ -1,0 +1,80 @@
+<!-- templates/registration/signup.html -->
+<!-- templates/registration/login.html -->
+
+
+
+              <!DOCTYPE html>
+              {% load static %}
+              <html lang="en">
+              <head>
+
+
+              {% include "header.html" %}
+
+
+              </head>
+               <body id="page-top">
+                  <div id="wrapper">
+
+
+
+                  <div id="content-wrapper" class="d-flex flex-column">
+
+                   <div id="content">
+
+
+                  {% block content %}
+
+
+                  {% load crispy_forms_tags %}
+
+
+                  <div class="container-fluid">
+
+                    <div class=" card-registration shadow border-left-primary ">
+                       <div class=" row ">
+                       <div class="col-xl-2 col-md-6 mb-4 ">
+                     </div>
+
+                      <div class="col-xl-8 col-md-6 mb-4">
+                  <div class="w3-container w3-teal">
+                    <h2>
+                      <h2>Creer un compte <h2/>
+                  </div>
+                  <div>
+                    <form method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      {{ form | crispy }}
+                      <div class="row">
+
+                     <div class="col-xl-8 col-md-6 mb-4 ">
+                       <a  ><button type="submit"  class="btn btn-primary btn-user btn-block"> <i class=" mdi mdi-database">Enregister</i></button></a>
+
+                    </div>
+
+
+                    <div class="col-xl-4 col-md-6 mb-4 ">
+                     <a  ><button type="submit"  class="btn btn-danger btn-user btn-block"> <i class=" mdi mdi-cancel">Annuler</i></button></a>
+
+                    </div>
+                      </div>  </form>
+                  </div>
+                  </div>
+
+                  <div class="col-xl-2 col-md-6 mb-4 ">
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+
+                  {% endblock content %}
+
+              </div>
+              </div>
+
+
+                </div>
+
+                  {% include "scripts.html" %}
+              </body>
+              </html>

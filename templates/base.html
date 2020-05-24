@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+
+
+{% include "header.html" %}
+
+
+</head>
+ <body id="page-top">
+    <div id="wrapper">
+
+
+    {% include "sidebar.html" %}
+    <div id="content-wrapper" class="d-flex flex-column">
+
+     <div id="content">
+      {% include "navbar.html" %}
+
+    {% block content %}
+
+    {% endblock content %}
+
+</div>
+    {% include "footer.html" %}
+</div>
+
+
+  </div>
+
+    {% include "scripts.html" %}
+</body>
+</html>

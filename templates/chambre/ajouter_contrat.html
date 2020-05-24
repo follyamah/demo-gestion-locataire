@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+ <div class="container-fluid">
+   <div class="row">
+     <div class="col-xl-2 col-md-6 mb-4 ">
+   </div>
+
+  <div class="col-xl-8 col-md-6 mb-4 ">
+  <form method="post">
+    {% csrf_token %}
+
+
+
+          {{ form.nom_locataire|as_crispy_field }}
+
+          {{ form.prenom_locataire|as_crispy_field }}
+          {{ form.sexe|as_crispy_field }}
+          {{ form.contact_no|as_crispy_field }}
+            {{ form.address|as_crispy_field }}
+              {{ form.email_address|as_crispy_field }}
+           {{ form.maison|as_crispy_field }}
+             {{ form.chambre|as_crispy_field }}
+         {{ form.caution|as_crispy_field }}
+
+
+
+
+
+    <div class="form-row">
+      <div class="form-group col-md-4 mb-0">
+        {{ form.date_contrat|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-4 mb-0">
+        {{ form.date_entree|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-4 mb-0">
+        {{ form.date_sortie|as_crispy_field }}
+      </div>
+
+    </div>
+
+    <div class="row">
+
+   <div class="col-xl-8 col-md-6 mb-4 ">
+     <a  ><button type="submit"  class="btn btn-primary btn-user btn-block"> <i class=" mdi mdi-database">Enregister</i></button></a>
+
+  </div>
+
+
+  <div class="col-xl-4 col-md-6 mb-4 ">
+   <a  ><button type="submit"  class="btn btn-danger btn-user btn-block"> <i class=" mdi mdi-cancel">Annuler</i></button></a>
+
+  </div>
+    </div>
+
+  </form>
+    </div>
+
+  <div class="col-xl-2 col-md-6 mb-4 ">
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}

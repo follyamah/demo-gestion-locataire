@@ -1,0 +1,102 @@
+
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<div class=" card-body">
+
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h4 class="card-title">Liste des payements</h4>
+      <a href="{%url 'payement:ajouter-payement'%}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="mdi mdi-plus-circle mdi-sm text-white-50"></i> Nouveau Payement</a>
+    </div>
+
+
+
+
+
+                  <div class="shadow">
+                  <div class="card-body">
+                    <h4 class="card-title">Lorem ipsum dolor sit amet, . Ut enim ad minim veniam, quis nostrud exercitation </h4>
+                    <div class="col-sm-12 col-md-6"><div class="dataTables_length" id="dataTable_length"><label>Show <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option>
+                    </select> entries</label></div></div>
+                    <div class="table-responsive pt-3">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>
+                              #
+                            </th>
+                            <th>
+                              Nom & Prenom(s)
+                            </th>
+                            <th>
+                              Appartement
+                            </th>
+                            <th>
+                              Anee
+                            </th>
+                            <th>
+                              Mois
+                            </th>
+                            <th>
+                              Montant
+                            </th>
+                            <th>
+                              Date de Payement
+                            </th>
+                            <th>
+                              Action
+                            </th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for payement in payement%}
+                          <tr class="table-info">
+
+                            <td>
+                              {{payement.locataire_id}}
+                            </td>
+                            <td>
+                                {{payement.locataire.nom_locataire}}   {{payement.locataire.prenom_locataire}}
+                            </td>
+                            <td>
+                              {{payement.locataire.chambre}}
+                            </td>
+
+                            <td>
+                              {{payement.annee}}
+
+                            </td>
+
+                            <td>
+                                {{payement.mois}}
+                            </td>
+                            <td class="text-success">
+                              {{payement.montant}} <i class="mdi mdi-arrow-up"></i>
+                            </td>
+                            <td>
+                            {{payement.date_payement}}
+                            </td>
+
+                            <td>
+                              <a href="{% url 'payement:modifier-payement' pk=payement.pk %}" class="settings " title="Settings" data-toggle="tooltip"><i class=" mdi mdi-pencil   "></i></a>
+                              <a href="{% url 'payement:supprimer-payement' pk=payement.pk %}" ><i class=" mdi mdi-delete contrat-i "></i></a>
+                            </td>
+                          </tr>
+                          {%endfor%}
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+
+                </div>
+                {% endblock content%}

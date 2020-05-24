@@ -1,0 +1,58 @@
+<!-- templates/lecturer/course.html -->
+{% extends 'base.html' %}
+{% load crispy_forms_tags%}
+ {% block content %} <!-- Add Department Modal -->
+
+ <div class="container-fluid">
+
+   <div class="row">
+
+       <div class="col-xl-2 col-md-6 mb-4 ">
+     </div>
+
+     <div class="col-xl-8 col-md-6 mb-4 ">
+
+
+ <h1 class="text-center">Ajouter Chambre</h1>
+
+
+
+ <form action="." method="post" class="admission-form d-block center">
+   {% csrf_token %}
+     {% if msg %}
+     {{msg}}
+       {% else %}
+   {{ form.maison|as_crispy_field }}
+   {{ form.nom|as_crispy_field }}
+   {{ form.type_chambre|as_crispy_field }}
+   {{ form.prix|as_crispy_field }}
+   {{ form.statut|as_crispy_field }}
+     {% endif %}
+   <div class="row">
+
+  <div class="col-xl-8 col-md-6 mb-4 ">
+    <a  ><button type="submit"  class="btn btn-primary btn-user btn-block"> <i class=" mdi mdi-database">Enregister</i></button></a>
+
+</div>
+
+
+<div class="col-xl-4 col-md-6 mb-4 ">
+  <a  ><button type="submit"  class="btn btn-danger btn-user btn-block"> <i class=" mdi mdi-cancel">Annuler</i></button></a>
+
+</div>
+   </div>
+ </form>
+  </div>
+
+
+
+    <div class="col-xl-2 col-md-6 mb-4 ">
+  </div>
+
+  </div>
+   </div>
+
+
+
+
+ {%endblock%}
